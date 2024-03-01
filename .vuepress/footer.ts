@@ -4,13 +4,13 @@
 export default {
   friendLinks: [
     {
-      label: "站长 - 程序员鱼皮",
+      label: "站长 - 微雨星晗",
       // icon: "/icon/user.svg",
       href: "https://yuyuanweb.feishu.cn/wiki/Abldw5WkjidySxkKxU2cQdAtnah",
     },
     {
-      label: "鱼鸢网络",
-      href: "https://yuyuanweb.com/",
+      label: "站长Github",
+      href: "https://github.com/WeiYuXingHan",
     },
     {
       label: "老鱼简历",
