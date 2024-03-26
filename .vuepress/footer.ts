@@ -13,15 +13,15 @@ export default {
       href: "https://github.com/WeiYuXingHan",
     },
     {
-      label: "老鱼简历",
+      label: "这里不知道写什么",
       href: "https://www.laoyujianli.com/",
     },
     {
-      label: "鱼聪明 AI",
+      label: "这里不知道写什么",
       href: "https://www.yucongming.com/",
     },
     {
-      label: "编程学习圈",
+      label: "这里不知道写什么",
       href: "https://yuyuanweb.feishu.cn/wiki/VC1qwmX9diCBK3kidyec74vFnde",
     },
   ],
