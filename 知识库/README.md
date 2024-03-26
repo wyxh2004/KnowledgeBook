@@ -2,7 +2,7 @@
 
 > 本文作者：[微雨星晗](https://yuyuanweb.feishu.cn/wiki/Abldw5WkjidySxkKxU2cQdAtnah)
 >
-> 本站地址：[https://codefather.cn](https://codefather.cn)
+> 本站地址：[https://wyshub.xyz](https://wyshub.xyz)
 
 
 [Java 学习路线 by 微雨星晗](Java学习路线.md)
