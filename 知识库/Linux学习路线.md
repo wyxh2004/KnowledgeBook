@@ -1,6 +1,6 @@
-# Linux 学习路线 by 微雨星晗
+# Linux 学习路线 by 鱼皮
 
-> 本文作者：[微雨星晗](https://yuyuanweb.feishu.cn/wiki/Abldw5WkjidySxkKxU2cQdAtnah)
+> 本站作者：[微雨星晗](https://yuyuanweb.feishu.cn/wiki/Abldw5WkjidySxkKxU2cQdAtnah)
 >
 > 本站地址：[https://wyshub.xyz](https://wyshub.xyz)
 
