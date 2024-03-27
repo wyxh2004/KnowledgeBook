@@ -2,7 +2,7 @@
 
 > 本站作者：[微雨星晗](https://yuyuanweb.feishu.cn/wiki/Abldw5WkjidySxkKxU2cQdAtnah)
 >
-> 本站地址：[https://wyshub.xyz](https://wyshub.xyz)
+> 本站地址：[http://www.wyshub.xyz](http://www.wyshub.xyz)
 
 
 不喜欢阅读文字的同学可以看视频讲解：[https://www.bilibili.com/video/BV1KZ4y1e7cG](https://www.bilibili.com/video/BV1KZ4y1e7cG)
