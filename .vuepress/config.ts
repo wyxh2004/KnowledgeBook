@@ -5,7 +5,7 @@ import footer from "./footer";
 import extraSideBar from "./extraSideBar";
 
 const author = "wyxh2004";
-const domain = "http://www.wyshub.xyz";
+const domain = "https://wyshub.xyz";
 const tags = ["程序员", "编程", "计算机"];
 
 export default defineConfig({
@@ -118,10 +118,10 @@ export default defineConfig({
     logo: "/logo.png",
     nav: navbar,
     sidebar,
-    lastUpdated: "最近更新",
+    lastUpdated: "最后一次更新",
 
     // GitHub 仓库位置
-    repo: "liyupi/codefather",
+    repo: "WeiYuXingHan/KnowledgeBook",
     docsBranch: "master",
 
     // 编辑链接
