@@ -17,6 +17,13 @@ export default [
     ],
   },
   {
+    title: "计算机",
+    collapsable: false,
+    children: [
+      "计算机.md",
+    ],
+  },
+  {
     title: "数学",
     collapsable: false,
     children: [

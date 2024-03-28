@@ -6,6 +6,10 @@ export default [
         link: '/学习路线/'
     },
     {
+        text: "计算机",
+        link: '/计算机/'
+    },
+    {
         text: "数学",
         link: '/数学/'
     },
