@@ -9,12 +9,12 @@
 
 xxx
 
-### B 站
+## B 站
 
 主页：[https://space.bilibili.com/12890453](https://space.bilibili.com/452042650)
 
 
-### GitHub
+## GitHub
 
 xxx
 
@@ -25,16 +25,14 @@ xxx
 
 
 
-### 其他平台
+## 其他平台
 
-#### Telegram 
+### Telegram 
 
 地址：[https://t.me.wyxh2004](https://t.me.wyxh2004) 
 
 
 欢迎大家关注俺，一起学习进步~
-
-
 
 
 ### 纯个人作品

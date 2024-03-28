@@ -14,19 +14,19 @@ export default {
     },
     {
       label: "这里不知道写什么",
-      href: "https://www.laoyujianli.com/",
+      href: "https://www.example.com/",
     },
     {
       label: "这里不知道写什么",
-      href: "https://www.yucongming.com/",
+      href: "https://www.example.com/",
     },
     {
       label: "这里不知道写什么",
-      href: "https://yuyuanweb.feishu.cn/wiki/VC1qwmX9diCBK3kidyec74vFnde",
+      href: "https://www.example.com/",
     },
   ],
   copyright: {
     href: "https://beian.miit.gov.cn/",
-    name: "沪ICP备19026706号-6",
+    name: "浙ICP备114514号-6(还没备案呢乱写的）",
   },
 };

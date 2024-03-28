@@ -16,4 +16,18 @@ export default [
       "Linux学习路线.md",
     ],
   },
+  {
+    title: "数学",
+    collapsable: false,
+    children: [
+      "数学.md",
+    ],
+  },
+  {
+    title: "嵌入式",
+    collapsable: false,
+    children: [
+      "嵌入式.md",
+    ],
+  }
 ];
