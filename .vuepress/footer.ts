@@ -6,7 +6,7 @@ export default {
     {
       label: "站长 - 微雨星晗",
       // icon: "/icon/user.svg",
-      href: "https://yuyuanweb.feishu.cn/wiki/Abldw5WkjidySxkKxU2cQdAtnah",
+      href: "https://github.com/WeiYuXingHan",
     },
     {
       label: "站长Github",
