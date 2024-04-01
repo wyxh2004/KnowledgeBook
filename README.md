@@ -26,15 +26,25 @@
 
 ## 网站架构
 - 域名注册: [Aliyun](https://www.aliyun.com/)
+  
 - 域名解析: [CloudFlare](https://www.cloudflare.com/)
+  
 - 网页生成: [VuePress](https://vuepress.vuejs.org/)
+  
 - 界面框架: [Vue.js](https://vuejs.org/)
+  
 - 功能依赖: 暂无
+  
 - 网页部署: [Aliyun CDN](https://www.aliyun.com/)
+  
 - 网页备份: [GitHub](https://github.com/)
+  
 - 文件分发: 暂无
+  
 - 网络服务: [nginx](https://nginx.org/)
+
 - 加密证书: [Let’s Encrypt](https://letsencrypt.org/)
+
 - 访问统计: [umami](https://umami.is/)
 
 ## 关于站长
