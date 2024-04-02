@@ -21,10 +21,10 @@
 
 - 推荐使用 **Chrome、FireFox** 等现代浏览器, 以获得最佳的使用体验.
 
-
--> 基于服务器和客户端的 IPv6 部署均未得到全面普及的现状, 本站暂不支持 IPv6 访问.
+> 基于服务器和客户端的 IPv6 部署均未得到全面普及的现状, 本站暂不支持 IPv6 访问.
 
 ## 网站架构
+
 - 域名注册: [Aliyun](https://www.aliyun.com/)
   
 - 域名解析: [CloudFlare](https://www.cloudflare.com/)
@@ -57,24 +57,19 @@
 
 主页：[https://space.bilibili.com/12890453](https://space.bilibili.com/452042650)
 
-
 ## GitHub
 
 没什么项目经历只会堆FAQ的屑
 
 地址：[https://github.com/WeiYuXingHan](https://github.com/WeiYuXingHan) 
 
-
 欢迎 follow ⭐️
-
-
 
 ## 其他平台
 
 ### Telegram 
 
 地址：[https://t.me.wyxh2004](https://t.me.wyxh2004) 
-
 
 ## 纯个人作品
 

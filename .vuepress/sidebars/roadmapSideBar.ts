@@ -35,6 +35,8 @@ export default [
     collapsable: false,
     children: [
       "嵌入式.md",
+      "I2C协议.md",
+      "SPI协议.md",
     ],
   }
 ];

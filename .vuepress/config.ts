@@ -6,11 +6,11 @@ import extraSideBar from "./extraSideBar";
 
 const author = "wyxh2004";
 const domain = "https://wyxh2004.cn";
-const tags = ["程序员", "编程", "计算机"];
+const tags = ["程序员", "编程", "计算机", "数学", "嵌入式"];
 
 export default defineConfig({
   title: "微雨星晗的知识库",
-  description: "贴心的编程学习路线，全面的编程知识百科",
+  description: "努力做全面的技术知识百科",
   head: [
     // 站点图标
     ["link", { rel: "icon", href: "/favicon.ico" }],
