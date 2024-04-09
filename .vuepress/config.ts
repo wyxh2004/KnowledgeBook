@@ -5,7 +5,7 @@ import footer from "./footer";
 import extraSideBar from "./extraSideBar";
 
 const author = "wyxh2004";
-const domain = "https://wyxh2004.cn";
+const domain = "https://wyssixsixsix.top";
 const tags = ["程序员", "编程", "计算机", "数学", "嵌入式"];
 
 export default defineConfig({

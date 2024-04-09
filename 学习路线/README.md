@@ -2,7 +2,7 @@
 
 > 本站作者：[微雨星晗](https://github.com/WeiYuXingHan)
 >
-> 本站地址：[https://wyxh2004.cn](https://wyxh2004.cn)
+> 本站地址：[https://wyssixsixsix.top](https://wyssixsixsix.top)
 
 
 [Java 学习路线 by 鱼皮](Java学习路线.md)
