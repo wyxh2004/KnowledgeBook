@@ -1,6 +1,6 @@
 SPI
-SPI通讯协议
-简介
+# SPI通讯协议
+## 简介
 SPI 是英语Serial Peripheral interface的缩写, 顾名思义就是串行外围设备接口. 是Motorola(摩托罗拉)首先在其MC68HCXX系列处理器上定义的. 与UART相比SPI是同步通信协议. 与I2C相比SPI是全双工的协议, 即使用两条数据线分别用来发送和接收数据, 从而使得SPI相比I2C简单了不少.
 
 SPI,是一种高速的, 全双工, 同步的通信总线, 并且在芯片的管脚上只占用四根线, 节约了芯片的管脚,同时为PCB的布局上节省空间, 提供方便, 主要应用在 EEPROM, FLASH, 实时时钟, AD转换器, 还有数字信号处理器和数字信号解码器之间.
@@ -48,7 +48,7 @@ W25Q64是一款采用SPI通讯协议的FLASK的存储芯片, 容量为8MByte. SP
 
 MySPI.c为通讯协议层驱动. W25Q64.c是模块驱动. W25Q64的DI引脚接PA7, DO引脚接PA6, CLK引脚接PA5, SS引脚接PA4, VCC接3.3V, GND接GND.
 
-[]
+```c
 // MySPI.c
 #include "stm32f10x.h"                  // Device header
 #include "MySPI.h"
@@ -107,7 +107,7 @@ uint8_t MySPI_SwapByte(uint8_t Byte) { //交换一个字节
 	return Byte; //返回读取到的字节
 }
 
-[]
+```c
 // W25Q64.c
 #include "stm32f10x.h"                  // Device header
 #include "W25Q64.h"
@@ -187,7 +187,7 @@ void W25Q64_ReadData(uint32_t Address, uint8_t *DataArray, uint32_t ArraySize) {
 	MySPI_Stop();
 }
 
-[]
+```c
 // main.c
 #include "stm32f10x.h"                  /* Device header */
 #include "Delay.h"
@@ -234,11 +234,12 @@ int main(void) {
 		
 	}
 }
- 
+```
+
 SPI读写W25Q64(STM32硬件驱动)
 除了MySPI.c, 其他文件都与软件驱动相同. SS引脚采用GPIO模拟控制.
 
-[]
+```c
 #include "stm32f10x.h"                  // Device header
 #include "MySPI.h"
 
@@ -313,12 +314,13 @@ void MySPI_SwapArray(uint8_t* Array, uint8_t ArraySize) { //连续交换
 	while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) != SET); 
 	*(Array - 1) = SPI_I2S_ReceiveData(SPI1); //接收最后一位
 }
+```
 
 SPI从机(软件模拟)
 主机通过SPI2硬件256分频(140.625kHz)连续时序发送”Hello World!”.
 从机:
 
-[]
+```c
 // MySPI.c
 #include "stm32f10x.h"                  // Device header
 #include "MySPI.h"
@@ -427,12 +429,14 @@ void EXTI9_5_IRQHandler(void) {
 		EXTI_ClearITPendingBit(EXTI_Line5);
 	}
 }
+```
 
 程序现象: Hello World! 字符串在主机与从机之间来回传输.
 SPI从机(硬件驱动)
 根据手册中的描述折腾了好久, 最终发现只要在初始化中进行调整, 传输改为中断或者轮询即可, 代码收发数据部分与主机保持一致即可.
 实测稳定传输速度可达9MHz.
-[]
+
+```c
 // 从机 MySPI.c
 #include "stm32f10x.h"                  // Device header
 #include "MySPI.h"
@@ -496,8 +500,8 @@ void MySPI_SwapArray(uint8_t* Array, uint8_t ArraySize) {
 	while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) != SET); 
 	*(Array - 1) = SPI_I2S_ReceiveData(SPI1); //接收最后一位
 }
-
-[]
+```
+```c
 // 从机 main.c
 #include "stm32f10x.h"                  /* Device header */
 #include "OLED.h"
@@ -520,6 +524,7 @@ int main(void) {
 		MySPI_SwapArray(Data, 13);
 	}
 }
+```
 
 程序现象: 从机中的 “AAAAAAAAAAAA” 和主机中的 “Hello World!” 反复交换(主机在TIM中断中进行一次通讯).
 通过DMA转运应该能达到更快的速度, 等期末考完之后试一试(顺便复习一下DMA操作).
