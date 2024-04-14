@@ -71,6 +71,10 @@
 
 地址：[https://t.me.wyxh2004](https://t.me.wyxh2004) 
 
+### 个人博客
+
+[微雨星晗的个人博客](https://weiyuxinghan.github.io/PersonalBlogPage/)
+
 ## 纯个人作品
 
 - 红旅金陵小程序（基本完结）
