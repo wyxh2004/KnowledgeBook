@@ -4,9 +4,11 @@
 >
 > 本站地址：[https://wyssixsixsix.top](https://wyssixsixsix.top)
 
-[I2C协议 by WanDeJun](I2C协议.md) Fixed by wyxh2004
+[I2C协议 by WanDeJun](I2C协议.md) Fixed by 微雨星晗
 
-[SPI协议 by WanDeJun](SPI协议.md) Fixed by wyxh2004
+[SPI协议 by WanDeJun](SPI协议.md) Fixed by 微雨星晗
+
+[树莓派Pico by 微雨星晗](树莓派Pico.md)
 
 [UART协议 by wyxh2004](UART协议.md)
 
@@ -17,5 +19,7 @@
 [以太网协议](以太网协议.md)
 
 [蓝牙协议](蓝牙协议.md)
+
+[树莓派Pico](树莓派Pico.md)
 
 

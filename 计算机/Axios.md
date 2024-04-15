@@ -6,30 +6,59 @@
 
 ## Axios 是什么?
 
-
 Axios 是一个基于 `Promise` 的 `HTTP` 客户端。它由 `Matt Zabriskie` 开发，因其**简单易用、功能强大**而广受欢迎。axios 能够处理各种类型的 `HTTP` 请求，包括 `GET、POST、PUT、DELETE` 等，并支持拦截请求和响应、转换请求和响应数据、自动转换 `JSON` 数据等特性。
 
-Axios 作用于 `node.js` 和浏览器中。 它是 `isomorphic` 的 (即同一套代码可以运行在浏览器和node.js中)。在服务端它使用原生 `node.js http` 模块, 而在客户端 (浏览端) 则使用 `XMLHttpRequests`。
+**Axios 可以同时作用于 `node.js` 和浏览器中！** 是一个**跨平台**的通信库。在服务端它使用原生 `node.js http` 模块, 而在客户端 (浏览端) 则使用 `XMLHttpRequests`。
 
-## 特性
-- 从浏览器创建 `XMLHttpRequests` (XHR)
-- 从 node.js 创建 `http` 请求
-- 支持 `Promise API`
-- **拦截**请求和响应
-- **转换**请求和响应数据
-- **取消**请求
-- 超时处理
-- 查询参数序列化支持嵌套项处理
-- 自动将请求体序列化为：
-  - JSON (`application/json`)
-  - Multipart / FormData (`multipart/form-data`)
-  - URL encoded form (`application/x-www-form-urlencoded`)
-- 将 HTML Form 转换成 JSON 进行请求
-- 自动转换JSON数据
-- 获取浏览器和 node.js 的请求进度，并提供额外的信息（速度、剩余时间）
-- 为 node.js 设置带宽限制
-- 兼容符合规范的 FormData 和 Blob（包括 node.js）
-- 客户端支持防御XSRF
+在实际开发中，axios 的以下功能和特性被广泛使用：
+
+- ⭐拦截器（Interceptors）
+拦截器允许你在请求发送前或响应返回后执行自定义逻辑。这是处理认证、添加通用请求头、处理错误等的常用方法。
+
+- 配置（Config）
+axios 允许你通过传递一个**配置对象**来自定义请求的各个方面，如URL、方法、请求头、数据等。
+
+- 响应类型
+axios 支持多种响应类型，包括`JSON、XML、HTML`等，使得处理不同格式的响应变得容易。
+
+- ⭐并发请求（Concurrent Requests）
+通过使用 Promises，axios 可以轻松处理并发请求，这在需要同时从多个API获取数据时非常有用。
+
+- ⭐取消请求（eject）
+axios 提供了取消请求的能力，这在需要取消未完成请求的场景（如组件卸载）中非常有用。
+
+- ⭐转换请求和响应（Transform Request and Response）
+axios 允许你在发送请求前和接收响应后对数据进行转换，例如，你可以在发送前将 JSON 对象序列化为字符串，在接收响应后将字符串反序列化为 JSON 对象。
+
+- ⭐全局实例
+axios 可以创建一个全局实例，其中包含默认配置，这使得在整个应用中保持一致的HTTP客户端配置变得简单。
+
+- 拦截器的响应和请求错误处理
+拦截器也常用于全局错误处理，例如，当API请求失败时，你可以在拦截器中统一处理HTTP错误状态码。
+
+- 与 `async/await` 的配合使用
+axios 与 async/await 语法结合使用，可以编写出更简洁、更易于理解的异步代码。
+
+- 跨域资源共享（CORS）
+axios 能够处理跨域请求，这在现代Web应用中非常常见。
+
+- 自定义适配器
+axios 允许你自定义适配器来处理不同的请求，例如，你可以使用 `fetch` 作为适配器，或者为测试目的使用一个假的适配器。
+
+- 拦截器的请求排队
+在处理大量*并发*请求时，可以使用**拦截器**来排队请求，以避免对服务器造成过大压力。
+
+- ⭐支持FormData和Blob
+axios 支持 `FormData` 和 `Blob` 对象，这使得文件上传和处理二进制数据变得简单。
+
+- 国际化
+axios 支持国际化，可以通过HTTP头部 `Accept-Language` 来请求不同语言的响应内容。
+
+- 支持SPA（Single Page Application）单页应用
+axios 非常适合单页应用（SPA），因为它可以轻松处理路由变化和页面状态管理。
+
+这些特性使得 axios 成为一个非常灵活和强大的HTTP客户端库，适用于各种规模和类型的Web应用程序。随着项目需求的不同，某些特性可能会比其他特性更频繁地被使用。
+
   
 ## 安装
 
@@ -482,3 +511,6 @@ await axios.post('https://postman-echo.com/post', data,
   {headers: {'content-type': 'application/x-www-form-urlencoded'}}
 );
 ```
+如果您的服务器框架的请求体解析器（例如 `express.js` 的 `body-parser` ）支持嵌套对象解码，则其接收到的数据将与您提交的数据一样。
+
+>参考文献:[Axios中文网](https://www.axios-http.cn/)
