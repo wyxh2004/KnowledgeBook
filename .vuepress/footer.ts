@@ -27,6 +27,6 @@ export default {
   ],
   copyright: {
     href: "https://beian.miit.gov.cn/",
-    name: "浙ICP备114514号-6(还没备案呢乱写的）",
+    name: "浙ICP备2024065787号-2",
   },
 };
