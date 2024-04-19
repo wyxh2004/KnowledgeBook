@@ -29,8 +29,9 @@ jobs:
           # 生成软密码，并将其附加到SSH密钥
           ssh-keygen -p -f ~/.ssh/id_rsa -P "" -N "$DEPLOY_PASSPHRASE"
 
-          # 使用rsync命令将本地目录./vuepress/dist/中的文件同步到远程服务器 ${DEPLOY_HOST}:${DEPLOY_DIR}目录下
-          rsync -avz --delete ./vuepress/dist/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}
+          # 使用scp命令将本地目录./vuepress/dist/中的文件同步到远程服务器 ${DEPLOY_HOST}:${DEPLOY_DIR}目录下
+          #  rsync -avz --delete ./vuepress/dist/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}
+          scp -r ./vuepress/dist/* ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
