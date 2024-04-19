@@ -3,37 +3,37 @@ name: Deploy VuePress to Server
 on:
   push:
     branches:
-      - main 
+      - main
 
 env:
   DEPLOY_HOST: wyssixsixsix.top # 服务器地址
   DEPLOY_USER: root # 服务器登录用户名
   DEPLOY_DIR: /var/www/codefather/dist # 服务器上存放VuePress生成文件的目标目录
-  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} # 存储在GitHub Secrets中的SSH私钥
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PWD }} # 存储在GitHub Secrets中的SSH私钥
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Build VuePress site
-      run: npm run docs:build # 
+      - name: Build VuePress site
+        run: npm run docs:build #
 
-    - name: Deploy to server via SSH
-      env:
-        DEPLOY_PASSPHRASE: ${{ secrets.DEPLOY_PASSPHRASE }} # 如果您的SSH私钥需要密码，请添加此环境变量并存储在Secrets中
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
+      - name: Deploy to server via SSH
+        env:
+          DEPLOY_PASSPHRASE: ${{ secrets.SSH_PWD }} # 如果您的SSH私钥需要密码
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
 
-        if [ ! -z "$DEPLOY_PASSPHRASE" ]; then
-          ssh-keygen -p -f ~/.ssh/id_rsa -P "" -N "$DEPLOY_PASSPHRASE"
-        fi
+          if [ ! -z "$DEPLOY_PASSPHRASE" ]; then
+            ssh-keygen -p -f ~/.ssh/id_rsa -P "" -N "$DEPLOY_PASSPHRASE"
+          fi
 
-        rsync -avz --delete public/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}
+          rsync -avz --delete public/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}
