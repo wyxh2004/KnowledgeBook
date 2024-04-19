@@ -26,11 +26,8 @@ jobs:
           # 设置文件权限，只有拥有者可以读写该文件
           chmod 600 ~/.ssh/id_rsa
 
-          # 如果存在部署密码，则执行以下操作：
-          if [ ! -z "$DEPLOY_PASSPHRASE" ]; then
-            # 生成软密码，并将其附加到SSH密钥
-            ssh-keygen -p -f ~/.ssh/id_rsa -P "" -N "$DEPLOY_PASSPHRASE"
-          fi
+          # 生成软密码，并将其附加到SSH密钥
+          ssh-keygen -p -f ~/.ssh/id_rsa -P "" -N "$DEPLOY_PASSPHRASE"
 
           # 使用rsync命令将本地目录public/中的文件同步到远程服务器 ${DEPLOY_HOST}:${DEPLOY_DIR}目录下
           rsync -avz --delete public/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}
