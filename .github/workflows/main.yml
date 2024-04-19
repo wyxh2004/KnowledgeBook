@@ -1,39 +1,46 @@
-name: Deploy VuePress to Server
+name: Deploy VuePress
 
 on:
   push:
     branches:
       - main
 
-env:
-  DEPLOY_HOST: wyssixsixsix.top # 服务器地址
-  DEPLOY_USER: root # 服务器登录用户名
-  DEPLOY_DIR: /var/www/codefather/dist # 服务器上存放VuePress生成文件的目标目录
-  SSH_PRIVATE_KEY: ${{ secrets.SSH_PWD }} # 存储在GitHub Secrets中的SSH私钥
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
-
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
       - name: Install dependencies
         run: npm ci
-
       - name: Build VuePress site
-        run: npm run docs:build #
-
-      - name: Deploy to server via SSH
-        env:
-          DEPLOY_PASSPHRASE: ${{ secrets.SSH_PWD }} # 如果您的SSH私钥需要密码
+        run: npm run docs:build
+      - name: Deploy to Server
         run: |
+          # 创建 ~/.ssh 目录，以存放SSH公钥
           mkdir -p ~/.ssh
+
+          # 将SSH私钥存储在 ~/.ssh/id_rsa 文件中
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+
+          # 设置文件权限，只有拥有者可以读写该文件
           chmod 600 ~/.ssh/id_rsa
 
+          # 如果存在部署密码，则执行以下操作：
           if [ ! -z "$DEPLOY_PASSPHRASE" ]; then
+            # 生成软密码，并将其附加到SSH密钥
             ssh-keygen -p -f ~/.ssh/id_rsa -P "" -N "$DEPLOY_PASSPHRASE"
           fi
 
+          # 使用rsync命令将本地目录public/中的文件同步到远程服务器 ${DEPLOY_HOST}:${DEPLOY_DIR}目录下
           rsync -avz --delete public/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_DIR: ${{ secrets.DEPLOY_DIR }}
+          DEPLOY_PASSPHRASE: ${{ secrets.DEPLOY_PASSPHRASE }}
