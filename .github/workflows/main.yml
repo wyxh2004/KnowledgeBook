@@ -17,21 +17,14 @@ jobs:
         run: npm run docs:build
       - name: Deploy to Server
         run: |
-          # 创建 ~/.ssh 目录，以存放SSH公钥
-          mkdir -p ~/.ssh
+          run: |
+          SET USERPROFILE=%USERPROFILE%
+          mkdir "%USERPROFILE%\.ssh"
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' > "%USERPROFILE%\.ssh\id_rsa"
+          icacls "%USERPROFILE%\.ssh\id_rsa" /grant:r "%USERPROFILE%:(rw)"
 
-          # 将SSH私钥存储在 ~/.ssh/id_rsa 文件中
-          echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-
-          # 设置文件权限，只有拥有者可以读写该文件
-          chmod 600 ~/.ssh/id_rsa
-
-          # 生成软密码，并将其附加到SSH密钥
-          ssh-keygen -p -f ~/.ssh/id_rsa -P "" -N "$DEPLOY_PASSPHRASE"
-
-          # 使用scp命令将本地目录./vuepress/dist/中的文件同步到远程服务器 ${DEPLOY_HOST}:${DEPLOY_DIR}目录下
-          #  rsync -avz --delete ./vuepress/dist/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}
-          scp -r ./vuepress/dist/* ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}
+          # 使用scp命令同步文件
+          scp -r ./vuepress/dist/* "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
