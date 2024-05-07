@@ -61,7 +61,7 @@
 
 没什么项目经历只会堆FAQ的屑
 
-地址：[https://github.com/WeiYuXingHan](https://github.com/WeiYuXingHan) 
+地址：[https://github.com/wyxh2004](https://github.com/wyxh2004) 
 
 欢迎 follow ⭐️
 
@@ -73,7 +73,7 @@
 
 ### 个人博客
 
-[微雨星晗的个人博客](https://weiyuxinghan.github.io/PersonalBlogPage/)
+[微雨星晗的个人博客](https://wyxh2004.github.io/blog/)
 
 ## 纯个人作品
 

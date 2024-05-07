@@ -6,11 +6,11 @@ export default {
     {
       label: "站长 - 微雨星晗",
       // icon: "/icon/user.svg",
-      href: "https://github.com/WeiYuXingHan",
+      href: "https://github.com/wyxh2004",
     },
     {
       label: "站长Github",
-      href: "https://github.com/WeiYuXingHan",
+      href: "https://github.com/wyxh2004",
     },
     {
       label: "这里不知道写什么",

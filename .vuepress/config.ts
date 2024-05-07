@@ -121,7 +121,7 @@ export default defineConfig({
     lastUpdated: "最后一次更新",
 
     // GitHub 仓库位置
-    repo: "WeiYuXingHan/KnowledgeBook",
+    repo: "wyxh2004/KnowledgeBook",
     docsBranch: "master",
 
     // 编辑链接
