@@ -69,7 +69,7 @@
 
 ### Telegram 
 
-地址：[https://t.me.wyxh2004](https://t.me.wyxh2004) 
+地址：[https://t.me.wyxh2004](https://t.me/wyxh2004) 
 
 ### 个人博客
 
