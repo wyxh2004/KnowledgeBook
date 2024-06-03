@@ -30,7 +30,7 @@ jobs:
           Start-Service ssh-agent
           ssh-add $privateKeyPath
           if ('${{ secrets.DEPLOY_PASSPHRASE }}' -ne '') {
-            ssh-add - <<< "${{ secrets.DEPLOY_PASSPHRASE }}"
+            ssh-add -p "${{ secrets.DEPLOY_PASSPHRASE }}"
           }
           scp -r E:\桌面\Projects\codefather-template\codefather-template\.vuepress\dist\* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_DIR }}
 
