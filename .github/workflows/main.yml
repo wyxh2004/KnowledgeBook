@@ -17,16 +17,23 @@ jobs:
         run: npm run docs:build
       - name: Deploy to Server
         run: |
-          SET USERPROFILE=%USERPROFILE%
-          mkdir "%USERPROFILE%\.ssh"
-          echo "$SSH_PRIVATE_KEY" | tr -d '\r' > "%USERPROFILE%\.ssh\id_rsa"
-          icacls "%USERPROFILE%\.ssh\id_rsa" /grant:r "%USERPROFILE%:(rw)"
+          $env:USERPROFILE = [System.Environment]::GetEnvironmentVariable('USERPROFILE')
+          $sshDir = "$env:USERPROFILE\.ssh"
+          New-Item -ItemType Directory -Force -Path $sshDir
+          $privateKeyPath = "$sshDir\id_rsa"
+          Set-Content -Path $privateKeyPath -Value "${{ secrets.SSH_PRIVATE_KEY }}"
+          icacls $privateKeyPath /inheritance:r
+          icacls $privateKeyPath /grant:r "$($env:USERNAME):(R)"
+          icacls $privateKeyPath /grant:r "$($env:USERNAME):(W)"
+          icacls $privateKeyPath /grant:r "Administrators:(R)"
+          icacls $privateKeyPath /remove "Users"
+          Start-Service ssh-agent
+          ssh-add $privateKeyPath
+          if ('${{ secrets.DEPLOY_PASSPHRASE }}' -ne '') {
+            ssh-add - <<< "${{ secrets.DEPLOY_PASSPHRASE }}"
+          }
+          scp -r E:\桌面\Projects\codefather-template\codefather-template\.vuepress\dist\* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_DIR }}
 
-          # 如果您的环境不需要修改密码或已经有合适的权限，则下面两行可以省略
-          ssh-keygen -p -f "%USERPROFILE%\.ssh\id_rsa" -P "" -N "$DEPLOY_PASSPHRASE"
-
-          # 使用scp命令同步文件
-          scp -r ./vuepress/dist/* "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
