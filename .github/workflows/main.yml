@@ -27,7 +27,6 @@ jobs:
           icacls $privateKeyPath /grant:r "$($env:USERNAME):(W)"
           icacls $privateKeyPath /grant:r "Administrators:(R)"
           icacls $privateKeyPath /remove "Users"
-          Start-Service ssh-agent
           ssh-add $privateKeyPath
           if ('${{ secrets.DEPLOY_PASSPHRASE }}' -ne '') {
             ssh-add -p "${{ secrets.DEPLOY_PASSPHRASE }}"
