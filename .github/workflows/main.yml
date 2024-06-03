@@ -20,8 +20,8 @@ jobs:
           SET USERPROFILE=%USERPROFILE%
           mkdir "%USERPROFILE%\.ssh"
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' > "%USERPROFILE%\.ssh\id_rsa"
-         icacls "%USERPROFILE%\.ssh\id_rsa" /grant:r "%USERPROFILE%:(rw)"
-          
+          icacls "%USERPROFILE%\.ssh\id_rsa" /grant:r "%USERPROFILE%:(rw)"
+
           # 如果您的环境不需要修改密码或已经有合适的权限，则下面两行可以省略
           ssh-keygen -p -f "%USERPROFILE%\.ssh\id_rsa" -P "" -N "$DEPLOY_PASSPHRASE"
 
