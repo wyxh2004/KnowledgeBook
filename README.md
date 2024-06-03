@@ -33,8 +33,8 @@
   
 - 界面框架: [Vue.js](https://vuejs.org/)
   
-- 功能依赖: 暂无
-  
+- 功能依赖: 暂无, 后续会考虑接入[Artalk](https://github.com/ArtalkJS/Artalk)
+
 - 网页部署: [Aliyun CDN](https://www.aliyun.com/)
   
 - 网页备份: [GitHub](https://github.com/)
@@ -69,7 +69,7 @@
 
 ### Telegram 
 
-地址：[https://t.me.wyxh2004](https://t.me/wyxh2004) 
+地址：[https://t.me/wyxh2004](https://t.me/wyxh2004) 
 
 ### 个人博客
 
@@ -79,6 +79,7 @@
 
 - 红旅金陵小程序（基本完结）
 - dz2301（开发中）
-- 其它......
+- pi_tailscale（开发中）
+- Njtech_home_connector（开发中）
 
 > 欢迎大家关注俺，一起学习进步~
