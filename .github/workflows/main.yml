@@ -11,32 +11,18 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
+
       - name: Install dependencies
         run: npm install
+
       - name: Build VuePress site
         run: npm run docs:build
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: Deploy to Server
         run: |
-          $env:USERPROFILE = [System.Environment]::GetEnvironmentVariable('USERPROFILE')
-          $sshDir = "$env:USERPROFILE\.ssh"
-          New-Item -ItemType Directory -Force -Path $sshDir
-          $privateKeyPath = "$sshDir\id_rsa"
-          Set-Content -Path $privateKeyPath -Value "${{ secrets.SSH_PRIVATE_KEY }}"
-          icacls $privateKeyPath /inheritance:r
-          icacls $privateKeyPath /grant:r "$($env:USERNAME):(R)"
-          icacls $privateKeyPath /grant:r "$($env:USERNAME):(W)"
-          icacls $privateKeyPath /grant:r "Administrators:(R)"
-          icacls $privateKeyPath /remove "Users"
-          ssh-add $privateKeyPath
-          if ('${{ secrets.DEPLOY_PASSPHRASE }}' -ne '') {
-            ssh-add -p "${{ secrets.DEPLOY_PASSPHRASE }}"
-          }
-          scp -r E:\桌面\Projects\codefather-template\codefather-template\.vuepress\dist\* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_DIR }}
-
+          echo $SSH_PRIVATE_KEY > key.pem
+          chmod 600 key.pem
+          scp -P $SERVER_PORT -i key.pem -r ./dist/* root@$SERVER_HOST:/var/www/codefather/dist
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
