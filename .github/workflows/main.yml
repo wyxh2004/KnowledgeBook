@@ -15,6 +15,10 @@ jobs:
         run: npm install
       - name: Build VuePress site
         run: npm run docs:build
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Deploy to Server
         run: |
           $env:USERPROFILE = [System.Environment]::GetEnvironmentVariable('USERPROFILE')
