@@ -22,7 +22,7 @@ jobs:
         run: |
           echo $SSH_PRIVATE_KEY > key.pem
           chmod 600 key.pem
-          scp -P 22 -i key.pem -r ./dist/* root@$DEPLOY_HOST:/var/www/codefather/dist
+          scp -P 22 -i key.pem -r ./vuepress/dist/* root@115.29.214.120:/var/www/codefather/dist
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
