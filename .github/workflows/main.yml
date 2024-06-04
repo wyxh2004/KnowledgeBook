@@ -19,13 +19,17 @@ jobs:
         run: npm run docs:build
 
       - name: Deploy to Server
-        run: |
-          echo $SSH_PRIVATE_KEY > key.pem
-          chmod 600 key.pem
-          scp -P 22 -i key.pem -r ./vuepress/dist/* root@115.29.214.120:/var/www/codefather/dist
+        uses: easingthemes/ssh-deploy@v5.0.3
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-          DEPLOY_DIR: ${{ secrets.DEPLOY_DIR }}
-          DEPLOY_PASSPHRASE: ${{ secrets.DEPLOY_PASSPHRASE }}
+          #私钥
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          #scp参数
+          ARGS: "-avzr --delete"
+          #源目录
+          SOURCE: "/.vuepress/dist/"
+          #服务器ip
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          #用户
+          REMOTE_USER: "root"
+          #目标地址
+          TARGET: "/var/www/codefather/dist"
