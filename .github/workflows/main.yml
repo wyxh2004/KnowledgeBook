@@ -15,6 +15,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Build documentation
+        env:
+          NODE_OPTIONS: "--openssl-legacy-provider --max_old_space_size=8192"
+        run: npm run docs:ubuild
+
       - name: Build VuePress site
         run: npm run docs:ubuild
 
