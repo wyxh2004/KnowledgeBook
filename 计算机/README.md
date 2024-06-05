@@ -11,5 +11,7 @@
 
 [【前端】Blob、ArrayBuffer和Buffer对象](Blob、ArrayBuffer、Buffer.md) by 微雨星晗
 
+[【Web杂谈】为什么我们想要Web3](为什么我们想要Web3.md) Written by Bojie Yang
+
 
 
