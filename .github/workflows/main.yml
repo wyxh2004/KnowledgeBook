@@ -16,7 +16,7 @@ jobs:
         run: npm install
 
       - name: Build VuePress site
-        run: npm run docs:build
+        run: npm run docs:ubuild
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v5.0.3
