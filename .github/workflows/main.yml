@@ -20,9 +20,6 @@ jobs:
           NODE_OPTIONS: "--openssl-legacy-provider --max_old_space_size=8192"
         run: npm run docs:ubuild
 
-      - name: Build VuePress site
-        run: npm run docs:ubuild
-
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v5.0.3
         env:
