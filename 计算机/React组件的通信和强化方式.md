@@ -1,3 +1,9 @@
+---
+tags:
+  - React
+  - 前端
+---
+
 # React 组件的通信和强化方式
 
 > 本站作者：[微雨星晗](https://github.com/wyxh2004)
