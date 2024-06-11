@@ -50,36 +50,3 @@
 ## 关于站长
 
 微雨星晗，英文网名wyxh2004，答沙壁一个
-
-## B 站
-
-苦研术法，演化虚实，择有灵之体束之，吾已法则正道
-
-主页：[https://space.bilibili.com/12890453](https://space.bilibili.com/452042650)
-
-## GitHub
-
-没什么项目经历只会堆FAQ的屑
-
-地址：[https://github.com/wyxh2004](https://github.com/wyxh2004) 
-
-欢迎 follow ⭐️
-
-## 其他平台
-
-### Telegram 
-
-地址：[https://t.me/wyxh2004](https://t.me/wyxh2004) 
-
-### 个人博客
-
-[微雨星晗的个人博客](https://wyxh2004.github.io/blog/)
-
-## 纯个人作品
-
-- 红旅金陵小程序（基本完结）
-- dz2301（开发中）
-- pi_tailscale（开发中）
-- Njtech_home_connector（开发中）
-
-> 欢迎大家关注俺，一起学习进步~
