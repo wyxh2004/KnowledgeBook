@@ -2,7 +2,7 @@
 
 > 本站作者：[微雨星晗](https://github.com/wyxh2004)
 >
-> 本站地址：[https://wyssixsixsix.top](https://wyssixsixsix.top)0
+> 本站地址：[https://wyssixsixsix.top](https://wyssixsixsix.top)
 
 `Blob` 、 `ArrayBuffer` 和 `Buffer` 都是在处理**二进制数据**时常用的对象类型，它们分别在不同的编程环境（主要是Web浏览器和Node.js）中被广泛使用。
 

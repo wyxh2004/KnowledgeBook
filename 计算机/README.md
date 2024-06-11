@@ -13,5 +13,5 @@
 
 [【Web杂谈】为什么我们想要Web3](为什么我们想要Web3.md) Written by Bojie Yang
 
-
+[【前端】React组件的通信和强化方式 ](React组件的通信和强化方式.md) Written by DomeSy, Fixed by 微雨星晗
 
